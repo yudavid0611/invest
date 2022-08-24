@@ -7,7 +7,7 @@ from datetime import date
 from pprint import pprint
 
 
-response = get_response('M', 'insert_api_key!' '200001', '202207', '901Y014', item_code1='1070000', end_data=1000)       # 2000년 1월부터 2022년 07월까지 코스피 월별 종가 데이터 가져오기
+response = get_response('********', '901Y014', 'M', '200001', '202207', item_code1='1070000', end_data=1000)       # 2000년 1월부터 2022년 07월까지 코스피 월별 종가 데이터 가져오기
 # pprint(response)
 
 

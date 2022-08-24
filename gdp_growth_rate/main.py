@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from datetime import date
 
 
-response = get_response('Q', 'insert_api_key!', '2000Q1', '`2022Q4', '902Y015', item_code1='KOR')       # 2000년부터 2022년 2분기까지 분기별 경제성장률(전분기대비) 데이터 가져오기
+response = get_response('*********',  '902Y015', 'Q', '2000Q1', '2022Q4', item_code1='KOR')       # 2000년부터 2022년 2분기까지 분기별 경제성장률(전분기대비) 데이터 가져오기
 
 columns = ['time', 'kor']                                                           # 칼럼명 지정
 df = pd.DataFrame(columns = columns)                                                # 데이터를 담을 데이터프레임 생성

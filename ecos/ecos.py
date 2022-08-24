@@ -1,17 +1,17 @@
 import requests
 import pandas as pd
 
-def get_response(period, api_key, start_date, end_date, stat_code, base_url='http://ecos.bok.or.kr/api',
+def get_response(api_key, stat_code, period, start_date, end_date, base_url='http://ecos.bok.or.kr/api',
 stat_type = 'StatisticSearch', data_type = 'json',
 lang = 'kr', group_code = None, start_data = 1, end_data = 100, 
 item_code1 = None, item_code2 = None, item_code3 = None, item_code4 = None):
     '''
     Parameters
+    - api_key
+    - stat_code
     - period: (ex) A, Q, M, SM, D
     - start_date: (ex) 2015, 2015Q1, 201501, 20150101
     - end_date: (ex) 2015, 2015Q1, 201501, 20150101
-    - stat_code
-    - api_key: (defalut) PF91KFWFYVE1LUV7XNQJ
     - stat_type: (defalut) StatisticSearch
     - data_type: (defalut) json
     - lang: (defalut) kr
@@ -47,6 +47,7 @@ item_code1 = None, item_code2 = None, item_code3 = None, item_code4 = None):
     for a in args.values():
         if a != None:
             url = url + '/' + a
+    print(url)
 
     response = requests.get(url).json()[stat_type]['row']
     
@@ -54,4 +55,4 @@ item_code1 = None, item_code2 = None, item_code3 = None, item_code4 = None):
 
 
 if __name__ == '__main__':
-    print(get_response('Q', '2000Q1', '2022Q4', '902Y015', item_code1='KOR'))
+    print(get_response('*********',  '902Y015', 'Q', '2000Q1', '2022Q4', item_code1='KOR'))       # 2000년부터 2022년 2분기까지 분기별 경제성장률(전분기대비) 데이터 가져오기
